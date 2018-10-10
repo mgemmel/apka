@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 
 class ProjectsController extends Controller
 {
+    /* toto je len priprava controlera*/
     public function index()
     {
         if(Auth::check()) {
