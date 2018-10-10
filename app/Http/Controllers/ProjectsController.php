@@ -16,22 +16,13 @@ class ProjectsController extends Controller
         return view('auth.login');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
         return view('projects.create');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         if(Auth::check()){
@@ -49,12 +40,7 @@ class ProjectsController extends Controller
         return back()->withInput()->with('errors','Error creating new project');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\project  $project
-     * @return \Illuminate\Http\Response
-     */
+
     public function show(project $project)
     {
         //prva možnost
@@ -66,12 +52,7 @@ class ProjectsController extends Controller
         return view('projects.show',['project'=>$project]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\project  $project
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit(project $project)
     {
         $project=Project::find($project->id);
@@ -79,13 +60,7 @@ class ProjectsController extends Controller
         return view('projects.edit',['project'=>$project]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\project  $project
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, project $project)
     {
         $projectupdate=Project::where('id',$project->id)->update([
@@ -98,12 +73,7 @@ class ProjectsController extends Controller
         return back()->withInput();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\project  $project
-     * @return \Illuminate\Http\Response
-     */
+
     public function destroy(project $project)
     {
         $deleteproject = Project::find($project->id);
